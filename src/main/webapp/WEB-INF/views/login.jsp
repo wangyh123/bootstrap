@@ -19,14 +19,14 @@
                 <%--<p><a href="/login/register">Register?  </a></p>--%>
             <%--</form>--%>
 
-            <form>
+            <form id="loginForm" method="post" action="/login/main">
                 <div class="form-group">
                     <label>Username</label>
                     <input type="text" class="form-control" name="username" />
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control" name="email" />
+                    <input type="password" class="form-control" name="password" />
                 </div>
                 <div class="form-group">
                     <button type="submit" name="submit" >Login</button>
@@ -46,7 +46,7 @@
 <script>
 
     $(function () {
-        $('form').bootstrapValidator({
+        $('loginForm').bootstrapValidator({
             message: 'This value is not valid',
             feedbackIcons: {
                 valid: 'glyphicon glyphicon-ok',
