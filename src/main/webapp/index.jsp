@@ -3,7 +3,7 @@
 <head>
 </head>
 <body>
-<script language="javascript">location.href="/index/main"</script>
+<script language="javascript">location.href="/index/login"</script>
 </body>
 </html>
 
