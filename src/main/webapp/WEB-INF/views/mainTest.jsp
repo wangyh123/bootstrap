@@ -3,7 +3,7 @@
 <head>
     <title>测试1</title>
     <%@include file="/common/bootstrap.jsp"%>
-    <script src="css/login.css"></script>
+    <script src="/style/login.css"></script>
 </head>
 <body>
 

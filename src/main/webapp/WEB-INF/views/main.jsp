@@ -3,7 +3,7 @@
 <head>
     <title>后台管理系统</title>
     <%@include file="/common/bootstrap.jsp"%>
-    <link href="/css/main.css" rel="stylesheet" type="text/css">
+    <link href="/style/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div>
@@ -16,7 +16,7 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li role="presentation">
-                        <a href="#">当前用户：<span class="badge">admin</span></a>
+                        <a href="#" onclick="javascript:alert('欢迎您：admin')" >当前用户：<span class="badge">admin</span></a>
                     </li>
                     <li>
                         <a href="/main/login">

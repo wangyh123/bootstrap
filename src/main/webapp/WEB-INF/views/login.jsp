@@ -1,9 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
+    <title>登录</title>
     <%@include file="/common/bootstrap.jsp"%>
-    <link rel="stylesheet" href="/css/login.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="/style/login.css" type="text/css" media="all" />
 </head>
 <body>
 <div class="container">
