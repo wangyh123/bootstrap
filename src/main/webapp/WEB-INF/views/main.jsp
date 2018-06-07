@@ -32,16 +32,16 @@
         <div class="pageSidebar">
             <ul class="nav nav-stacked nav-pills">
                 <li role="presentation" class="active">
-                    <a href="/index/test" target="mainFrame">用户管理</a>
+                    <a href="#" onclick='javascript:openPage("/main/test?title=用户管理")'>用户管理</a>
                 </li>
                 <li role="presentation">
-                    <a href="/index/test" target="mainFrame">商品添加</a>
+                    <a href="#" onclick='javascript:openPage("/main/test?title=商品添加")'>商品添加</a>
                 </li>
                 <li role="presentation">
-                    <a href="/index/test" target="mainFrame">商品管理</a>
+                    <a href="#" onclick='javascript:openPage("/main/test?title=商品管理")'>商品管理</a>
                 </li>
                 <li role="presentation">
-                    <a href="/index/test" target="mainFrame">导航链接4</a>
+                    <a href="#" onclick='javascript:openPage("/main/test?title=导航链接4")'>导航链接4</a>
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -49,13 +49,13 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="/index/test" target="mainFrame">导航链接5-1</a>
+                            <a href="#" onclick='javascript:openPage("/main/test?title1=导航链接5&title2=导航链接5-1")'>导航链接5-1</a>
                         </li>
                         <li>
-                            <a href="/index/test" target="mainFrame">导航链接5-2</a>
+                            <a href="#" >导航链接5-2</a>
                         </li>
                         <li>
-                            <a href="/index/test" target="mainFrame">导航链接5-3</a>
+                            <a href="/main/test">导航链接5-3</a>
                         </li>
                     </ul>
                 </li>
@@ -64,9 +64,7 @@
         <!-- 左侧导航和正文内容的分隔线 -->
         <div class="splitter"></div>
         <!-- 正文内容部分 -->
-        <div class="pageContent">
-            <iframe src="/index/test" id="mainFrame" name="mainFrame" frameborder="0" width="100%"  height="100%" frameBorder="0"></iframe>
-        </div>
+        <div class="pageContent" id="page"></div>
     </div>
 
     <!-- 底部页脚部分 -->
@@ -81,9 +79,21 @@
 </body>
 
 <script>
+    $(function () {
+        openPage("/main/test?title=用户管理");
+    });
+
     $(".nav li").click(function() {
         $(".active").removeClass('active');
         $(this).addClass("active");
     });
+
+
+
+    function openPage(url){
+        var html ="";
+        html = html + '<iframe src=" '+url+ ' " frameborder="0" width="100%"  height="100%" frameBorder="0"></iframe> ';
+        $("#page").html(html);
+    }
 </script>
 </html>

@@ -8,14 +8,16 @@
 
 <div class="content">
 
+    <!--title间距-->
     <div class="header">
         <h4 class="page-title"></h4>
     </div>
 
+    <!--面包屑效果-->
     <div>
         <ul class="breadcrumb">
             <li><a href="index.html">Home</a></li>
-            <li class="active">Dashboard</li>
+            <li class="active">${ title }</li>
         </ul>
     </div>
 
