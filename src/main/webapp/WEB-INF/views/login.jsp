@@ -19,7 +19,7 @@
                 <%--<p><a href="/login/register">Register?  </a></p>--%>
             <%--</form>--%>
 
-            <form id="loginForm" method="post" action="/login/main">
+            <form id="loginForm" method="post">
                 <div class="form-group">
                     <label>Username</label>
                     <input type="text" class="form-control" name="username" />
@@ -29,7 +29,7 @@
                     <input type="password" class="form-control" name="password" />
                 </div>
                 <div class="form-group">
-                    <button type="submit" name="submit" >Login</button>
+                    <button type="submit" name="submit" onclick="check()">Login</button>
                 </div>
                 <div><p><a href="/login/register">Register?  </a></p></div>
             </form>
@@ -44,10 +44,13 @@
 
 
 <script>
+    function register(){
+        location.href="/login/register";
+    }
 
-    $(function () {
-        $('loginForm').bootstrapValidator({
-            message: 'This value is not valid',
+   function check() {
+        $('#loginForm').bootstrapValidator({
+            message: '值未验证!',
             feedbackIcons: {
                 valid: 'glyphicon glyphicon-ok',
                 invalid: 'glyphicon glyphicon-remove',
@@ -55,32 +58,49 @@
             },
             fields: {
                 username: {
-                    message: '用户名验证失败',
+                    message: '用户名未验证!',
                     validators: {
                         notEmpty: {
-                            message: '用户名不能为空'
+                            message: '用户名不能为空!'
                         }
                     }
                 },
                 password: {
                     validators: {
                         notEmpty: {
-                            message: '密码不能为空'
+                            message: '密码不能为空!'
+                        }
+//                        callback: {
+//                            callback: function(value, validator) {
+//                                // Check the password strength
+//                                if (value.length < 6) {
+//                                    return {
+//                                        valid: false,
+//                                        message: '密码不能少于6位.'
+//                                    }
+//                                }
+//                                return true;
+//                            }
                         }
                     }
                 }
-            },
-            submitHandler: function (validator, form, submitButton) {
-                location.href="/login/main";
-            }
-        });
-    });
+        }).on('success.form.bv', function (e) {
+            // Prevent form submission
+            e.preventDefault();
+            // Get the form instance
+            var $form = $(e.target);
+            // Get the BootstrapValidator instance
+            var bv = $form.data('bootstrapValidator');
+            // Use Ajax to submit form data
+            $.post("/login/check", $form.serialize(), function (data) {
+                if(data==""||data==null){
+                    alert("用户名或密码错误!");
+                }else{
+                    location.href="/login/main?username="+data;
+                }
 
-    function register(){
-        location.href="/login/register";
-    }
-    function login(){
-        location.href="/login/main";
+            });
+        });
     }
 </script>
 

@@ -16,7 +16,7 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li role="presentation">
-                        <a href="#" onclick="javascript:alert('欢迎您：admin')" >当前用户：<span class="badge">admin</span></a>
+                        <a href="#" onclick="javascript:alert('欢迎您：${ username }')" >当前用户：<span class="badge" >${ username }</span></a>
                     </li>
                     <li>
                         <a href="/main/login">
