@@ -14,8 +14,9 @@ public class MainController {
     }
 
     @RequestMapping("test")
-    public String test(String title, Model model){
+    public String test(String title, String title2, Model model){
         model.addAttribute("title",title);
+        model.addAttribute("title2",title2);
         return "test";
     }
 }

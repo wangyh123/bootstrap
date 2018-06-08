@@ -49,13 +49,13 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#" onclick='javascript:openPage("/main/test?title1=导航链接5&title2=导航链接5-1")'>导航链接5-1</a>
+                            <a href="#" onclick='javascript:openPage("/main/test?title=导航链接5&title2=导航链接5-1")'>导航链接5-1</a>
                         </li>
                         <li>
-                            <a href="#" >导航链接5-2</a>
+                            <a href="#" onclick='javascript:openPage("/main/test?title=导航链接5&title2=导航链接5-2")'>导航链接5-2</a>
                         </li>
                         <li>
-                            <a href="/main/test">导航链接5-3</a>
+                            <a href="#" onclick='javascript:openPage("/main/test?title=导航链接5&title2=导航链接5-3")'>导航链接5-3</a>
                         </li>
                     </ul>
                 </li>

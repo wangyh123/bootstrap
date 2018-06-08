@@ -13,3 +13,5 @@
 <!--表单提交验证插件-->
 <link href='../bootstrap/css/bootstrapValidator.css' rel='stylesheet'>
 <script src="../bootstrap/js/bootstrapValidator.min.js"></script>
+<!--jstl表达式-->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>

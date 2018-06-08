@@ -14,10 +14,18 @@
     </div>
 
     <!--面包屑效果-->
-    <div>
+    <div id="crumb">
         <ul class="breadcrumb">
-            <li><a href="index.html">Home</a></li>
-            <li class="active">${ title }</li>
+            <li>Home</li>
+            <c:choose>
+                <c:when test="${title2 == null}">
+                    <li class="active">${ title }</li>
+                </c:when>
+                <c:otherwise>
+                    <li>${ title }</li>
+                    <li class="active">${ title2 }</li>
+                </c:otherwise>
+            </c:choose>
         </ul>
     </div>
 
@@ -204,6 +212,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
