@@ -37,7 +37,7 @@ public class IndexController {
     public String formTest1(User user){
 
         System.out.println("======start222222222");
-        System.out.println("==="+user.getUsername()+"====="+user.getPassword() +"==="+user.getSex()+"==="+user.getAdr());
+        System.out.println("==="+user.getUsername()+"====="+user.getPassword() +"==="+user.getSex()+"==="+user.getAdr()+"==="+user.getSfz()+"==="+user.getPhone()+"==="+user.getE_mail());
         return "ok";
     }
 }
