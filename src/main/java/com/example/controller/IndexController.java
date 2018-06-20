@@ -24,19 +24,18 @@ public class IndexController {
         return "form";
     }
 
-    @RequestMapping("formTest")
+    @RequestMapping("formParam")
     @ResponseBody
-    public String formTest(String username ,String password){
-        System.out.println("======start111111111");
-        System.out.println("==="+username+"====="+password);
+    public String formParam(String username, String password, String sex, String adr, String sfz, String phone, String e_mail){
+        System.out.println("======传参数");
+        System.out.println("==="+username+"==="+password+"==="+sex+"==="+adr+"==="+sfz+"==="+phone+"==="+e_mail);
         return "ok";
     }
 
-    @RequestMapping("formTest1")
+    @RequestMapping("formEntity")
     @ResponseBody
-    public String formTest1(User user){
-
-        System.out.println("======start222222222");
+    public String formEntity(User user){
+        System.out.println("======实体类映射传值");
         System.out.println("==="+user.getUsername()+"====="+user.getPassword() +"==="+user.getSex()+"==="+user.getAdr()+"==="+user.getSfz()+"==="+user.getPhone()+"==="+user.getE_mail());
         return "ok";
     }

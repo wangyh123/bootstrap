@@ -10,39 +10,65 @@
 <form id="tt">
     <table>
         <tr>
-            <td> <label>用户名：</label></td>
-            <td> <input id="username" name="username" /></td>
+            <td>
+                <label>用户名：</label>
+            </td>
+            <td>
+                <input id="username" name="username" />
+            </td>
         </tr>
         <tr>
-            <td><label>密码：</label></td>
-            <td><input id="password" name="password" /></td>
+            <td>
+                <label>密码：</label>
+            </td>
+            <td>
+                <input id="password" name="password" />
+            </td>
         </tr>
         <tr>
-            <td><label>性别：</label></td>
-            <td><input name="sex" type="radio" checked="checked" value="男"/>男
-                <input name="sex" type="radio" value="女"/> 女</td>
+            <td>
+                <label>性别：</label>
+            </td>
+            <td>
+                <input name="sex" type="radio" checked="checked" value="男"/>男
+                <input name="sex" type="radio" value="女"/> 女
+            </td>
         </tr>
         <tr>
             <td><label>地址：</label></td>
-            <td><select id="adr" name="adr">
-                <option>==请选择地址==</option>
-                <option>北京</option>
-                <option>上海</option>
-                <option>广州</option>
-                <option>深圳</option>
-            </select></td>
+            <td>
+                <select id="adr" name="adr">
+                    <option>==请选择地址==</option>
+                    <option>北京</option>
+                    <option>上海</option>
+                    <option>广州</option>
+                    <option>深圳</option>
+                </select>
+            </td>
         </tr>
         <tr>
-            <td><label>身份证：</label></td>
-            <td><input id="sfz" name="sfz" /></td>
+            <td>
+                <label>身份证：</label>
+            </td>
+            <td>
+                <input id="sfz" name="sfz" />
+            </td>
         </tr>
         <tr>
-            <td><label>手机号：</label></td>
-            <td><input id="phone" name="phone" /></td>
+            <td>
+                <label>手机号：</label>
+            </td>
+            <td>
+                <input id="phone" name="phone" />
+            </td>
         </tr>
         <tr>
-            <td><label>邮箱：</label></td>
-            <td><input id="e_mail" name="e_mail" /></td>
+            <td>
+                <label>邮箱：</label>
+            </td>
+            <td>
+                <input id="e_mail" name="e_mail" />
+            </td>
         </tr>
         <tr>
             <td><input type="button" value="提交" onclick="tijiao()"/></td>
@@ -60,6 +86,7 @@
         var phone = $("#phone").val();
         var e_mail = $("#e_mail").val();
 
+        //验证用户名不能为空
         if(username==null||username==""){
            alert("用户名不能为空！");
         }else{
@@ -130,19 +157,28 @@
                 alert("请输入正确的邮箱！");
             }else{
                 //验证通过提交表单
-                submit();
+                request();
             }
         }
 
-
-        function submit(){
+        function request(){
             alert("==="+username+"=="+password+"==="+sex+"==="+adr+"==="+sfz+"==="+phone+"==="+e_mail);
             $.ajax({
                 //几个参数需要注意一下
                 type: "POST",//方法类型
                 dataType: "text",//预期服务器返回的数据类型
-                data: $('#tt').serialize(),
-                url: "/index/formTest1",//url
+//                data: $('#tt').serialize(),
+                data:{
+                    "username":username,
+                    "password":password,
+                    "sex": sex,
+                    "adr": adr,
+                    "sfz": sfz,
+                    "phone": phone,
+                    "e_mail": e_mail
+                },
+//                url: "/index/formEntity",
+                url: "/index/formParam",
                 success: function (data) {
                     if(data!=null){
                         alert(data);
