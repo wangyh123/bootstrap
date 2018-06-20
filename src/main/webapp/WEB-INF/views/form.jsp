@@ -166,8 +166,8 @@
             $.ajax({
                 //几个参数需要注意一下
                 type: "POST",//方法类型
-                dataType: "text",//预期服务器返回的数据类型
-//                data: $('#tt').serialize(),
+                dataType: "text",//预期服务器返回的数据类型 json\xml\text
+//              data: $('#tt').serialize(),
                 data:{
                     "username":username,
                     "password":password,
@@ -177,7 +177,7 @@
                     "phone": phone,
                     "e_mail": e_mail
                 },
-//                url: "/index/formEntity",
+//              url: "/index/formEntity",
                 url: "/index/formParam",
                 success: function (data) {
                     if(data!=null){
