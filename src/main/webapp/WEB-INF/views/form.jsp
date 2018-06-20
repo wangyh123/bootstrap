@@ -163,6 +163,23 @@
 
         function request(){
             alert("==="+username+"=="+password+"==="+sex+"==="+adr+"==="+sfz+"==="+phone+"==="+e_mail);
+//            postRequest();
+            ajaxRequest();
+        }
+
+        function postRequest(){
+//            url: "/index/formEntity",
+//            url: "/index/formParam",
+
+//            参数1：url    参数2：传参数    参数3：回调函数    注：传值形式同ajax
+            $.post("/index/formEntity", $("#tt").serialize(), function (data) {
+                if(data != null){
+                    alert("post请求成功=="+data);
+                }
+            });
+        }
+
+        function ajaxRequest(){
             $.ajax({
                 //几个参数需要注意一下
                 type: "POST",//方法类型
@@ -181,7 +198,7 @@
                 url: "/index/formParam",
                 success: function (data) {
                     if(data!=null){
-                        alert(data);
+                        alert("ajax请求成功=="+data);
                     }
                 },
                 error : function() {
